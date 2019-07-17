@@ -1,0 +1,33 @@
+{% block content %}
+{% csrf_token %}
+  <h2>Wellcome to Twiter </h2>
+<form action="{% url 'user:writetweet' %}" method="post">
+<input type="submit" value="Write Tweet">
+</form>
+
+
+<form action="{% url 'user:search_user' %}" method="post">
+<input type="text" name="User_info">
+<input type="submit" value="Search a person">
+</form>
+
+
+<form action="{% url 'user:show_tweets' %}" method="post">
+<input type="submit" value="Show Tweets">
+</form>
+
+
+
+
+<form action="{% url 'user:signout' %}" method="post">
+<input type="submit" value="signout">
+</form>
+
+
+
+
+{% csrf_token %}
+{% endblock %}
+
+
+

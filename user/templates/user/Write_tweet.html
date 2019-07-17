@@ -1,0 +1,12 @@
+{% csrf_token %}  
+<h2>Enter your tweet </h2>	
+<form action="{% url 'user:savetweet' %}" method="post">
+<p>
+{% csrf_token %}
+<input type="text" name="tweet" >
+</p>
+{% csrf_token %}
+<input type="submit" value="Post">
+</form>
+{% csrf_token %}
+

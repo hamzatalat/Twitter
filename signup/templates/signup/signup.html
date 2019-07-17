@@ -1,0 +1,16 @@
+{% block content %}
+  <h2>Sign up</h2>
+  <form action="{% url 'signup:savedata' %}" method="post">
+    {% csrf_token %}
+<p>Enter name
+    <input type="text" name="u_name" id="u_name">
+</p>
+<p>Enter email 
+   <input type="text" name="email">
+</p>
+<p>Enter password 
+    <input type="text" name="pass">
+</p>
+    <input type="submit" value="Sign Up">
+  </form>
+{% endblock %}

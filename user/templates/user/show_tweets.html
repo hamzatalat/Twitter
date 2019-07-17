@@ -1,0 +1,10 @@
+<h1>{{a.id}}</h1>
+<h1>Tweets are as fallows </h1>
+<ul>
+{% for choice in a.tweets_set.all %}
+    <li>{{ choice.tweet }}</li>
+<form action="{% url 'user:like_tweet' choice.tweet %}" method="post">
+    <input type="submit" value="like">
+</form>
+{% endfor %}
+</ul>
