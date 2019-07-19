@@ -13,18 +13,28 @@ class Base(generic.CreateView):
     template_name = 'user/base.html'
 
 
-#class Write_tweet(generic.CreateView):
-#    form_class = UserCreationForm
-#    success_url = reverse_lazy('successfull')
-#    template_name = 'user/Write_tweet.html'
+variable=''
+def comment_tweet(request):
+		global variable
+		o = Tweets.objects.get(tweet = variable)
+		o.comments_set.all()
+		coment_text = request.POST.get('Comment_text','')
+		o.comments_set.create( text=coment_text , likes=0)
+		o.save()
+		return render(request, 'user/base.html')
 
 def like_tweet(request,ids):
 	o = Tweets.objects.get(tweet = ids)
 	o.likes+=1
 	o.save()
+	return render(request, 'user/base.html')
+	
+
+
+
 
 def search_user(request):
-	string = request.POST.get('User_info')
+	string = request.POST['User_info']
 	try:
 		o = SignUpData.objects.get(name_text=string)
 		return render(request, 'user/user_found.html' , {'o': o})	
@@ -57,3 +67,11 @@ def signout(request):
 
 def writetweet(request):
 	return render(request,'user/Write_tweet.html')
+
+def find_user(request):
+	return render(request,'user/finduser.html')
+
+def coment(request , ids):
+	global variable
+	variable = ids
+	return render(request,'user/coment.html') 

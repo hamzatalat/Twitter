@@ -3,8 +3,27 @@
 <ul>
 {% for choice in a.tweets_set.all %}
     <li>{{ choice.tweet }}</li>
-<form action="{% url 'user:like_tweet' choice.tweet %}" method="post">
+<form action="{% url 'user:like_tweet' choice.tweet %}" method="post">{% csrf_token %}
     <input type="submit" value="like">
 </form>
+
+
+
+
+
+<p>
+
+<form action="{% url 'user:coment' choice.tweet %}" method="post">
+<input type="submit" value="Comment">
+</form>
+
+</p>
+
+
+
+
 {% endfor %}
 </ul>
+
+
+

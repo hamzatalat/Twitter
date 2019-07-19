@@ -6,9 +6,10 @@
 </form>
 
 
-<form action="{% url 'user:search_user' %}" method="post">
-<input type="text" name="User_info">
+<form action="{% url 'user:find_user' %}" method="post">
+<p>
 <input type="submit" value="Search a person">
+</p>
 </form>
 
 
@@ -28,6 +29,3 @@
 
 {% csrf_token %}
 {% endblock %}
-
-
-

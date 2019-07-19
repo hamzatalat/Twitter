@@ -1,0 +1,18 @@
+{% block content %}
+{% csrf_token %}
+
+
+
+    
+    
+<form action="{% url 'user:comment_tweet'  %}" method="post">
+    <p>
+        {% csrf_token %}
+        <input type="text" name="Comment_text" >
+        <input type="submit" value="Comment">
+        {% csrf_token %}
+    </p>
+</form>
+    
+{% csrf_token %}
+{% endblock %}

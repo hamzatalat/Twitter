@@ -11,5 +11,6 @@ class Tweets(models.Model):
 	likes = models.IntegerField(default=0)
 
 class comments (models.Model):
-	comments = models.ForeignKey(Tweets, on_delete=models.CASCADE)
+	tweet = models.ForeignKey(Tweets, on_delete=models.CASCADE)
+	text = 	models.CharField(max_length=200 ,default='')
 	likes = models.IntegerField(default=0)

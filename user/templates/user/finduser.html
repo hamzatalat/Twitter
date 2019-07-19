@@ -1,0 +1,15 @@
+{% block content %}
+{% csrf_token %}
+<form action="{% url 'user:search_user' %}" method="post">
+    <p>
+    {% csrf_token %}
+    <input type="text" name="User_info" >
+    <input type="submit" value="Search a person">
+    {% csrf_token %}
+    </p>
+    </form>
+    
+
+
+{% csrf_token %}
+{% endblock %}
